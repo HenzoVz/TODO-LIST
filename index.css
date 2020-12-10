@@ -21,9 +21,10 @@ body, input, button {
 }
 
 input {
+  display: inline-block;
   margin-top: 60px;
   margin-bottom: 60px;
-  display: inline-block;
+  margin-left: -5px;
   width: 800px;
   height: 70px;
   padding: 0 24px;
@@ -40,6 +41,7 @@ input::placeholder {
 .add {
   width: 75px;
   height: 74px;
+  margin-left: -5px;
   background: #12f155cb;
   border-radius: 0 5px 5px 0;
   border: 0;

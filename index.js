@@ -1,14 +1,13 @@
-const arrayTask = [];
-
+let arrayTask = [];
+let arrayStorage = JSON.parse(localStorage.getItem("@TODOLIST"));
 
 onload = function() {
-  let arrayStorage = localStorage.getItem("@TODOLIST");
-  let newArray = JSON.parse(arrayStorage);
   
+  arrayTask = arrayStorage;
   let task = document.getElementById("task");
 
-  for (let index in newArray) {
-    task.innerHTML += "<p>" + newArray[index] + "</p>";
+  for (let index in arrayStorage) {
+    task.innerHTML += "<p>" + arrayStorage[index] + "</p>";
   }
 
 };
@@ -18,8 +17,9 @@ function handleClickAddTask(element) {
   let value = element.value;
   let task = document.getElementById("task");
   task.innerHTML +=  "<p>" + value + "</p>"
-  arrayTask.push(value);
 
+  arrayTask.push(value);
+  console.log(arrayTask)
   localStorage.setItem("@TODOLIST", JSON.stringify(arrayTask))
 
 };
@@ -27,6 +27,7 @@ function handleClickAddTask(element) {
 
 function handleClickClear() {
   let task = document.getElementById("task");
+  
   task.innerHTML = ''
   localStorage.removeItem("@TODOLIST");
 }
